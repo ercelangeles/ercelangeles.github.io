@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Ercel Angeles · Software Developer</title>
+    <meta name="description" content="Build websites that provide useful tools to people.">
+    <meta name="author" content="Ercel Angeles">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://ercelangeles.github.io">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ercel Angeles · Software Developer">
+    <meta property="og:description" content="Build websites that provide useful tools to people.">
+    <meta property="og:url" content="https://ercelangeles.github.io">
+    <meta property="og:site_name" content="Ercel Angeles">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ercel Angeles · Software Developer">
+    <meta name="twitter:description" content="Build websites that provide useful tools to people.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="me" href="https://ca.linkedin.com/in/ercel-angeles-5174243a5">
+    <link rel="me" href="https://github.com/ercelangeles">
+
+    <meta name="theme-color" content="#f8f9f6">
+
+    <style>
+        :root {
+            color-scheme: light;
+
+            --background: #f8f9f6;
+            --surface: #ffffff;
+            --text: #222e2b;
+            --muted: #66736f;
+            --accent: #287c68;
+            --accent-dark: #1b5c4d;
+            --border: #e0e7e2;
+            --highlight: #fff17a;
+
+            --font-body: "DM Sans", sans-serif;
+            --font-heading: "Manrope", sans-serif;
+
+            --page-width: 1080px;
+            --radius: 16px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 32px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent-dark);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 5px;
+            border-radius: 3px;
+        }
+
+        mark {
+            padding: 0.08em 0.25em;
+            background: var(--highlight);
+            color: #282619;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        .container {
+            width: min(var(--page-width), calc(100% - 48px));
+            margin-inline: auto;
+        }
+
+        .site-header {
+            padding-block: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .wordmark {
+            color: var(--text);
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-dark);
+        }
+
+        main {
+            overflow: hidden;
+        }
+
+        .hero {
+            padding-block: clamp(76px, 12vw, 142px) 70px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 24px;
+            color: var(--accent-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 24px;
+            height: 2px;
+            background: var(--accent);
+            content: "";
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-heading);
+        }
+
+        h1 {
+            max-width: 850px;
+            margin-bottom: 20px;
+            font-size: clamp(3.1rem, 8vw, 6.1rem);
+            font-weight: 800;
+            letter-spacing: -0.085em;
+            line-height: 1.04;
+        }
+
+        .hero-description {
+            max-width: 620px;
+            margin-bottom: 30px;
+            color: var(--muted);
+            font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+            line-height: 1.65;
+        }
+
+        .primary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-height: 52px;
+            padding: 13px 21px;
+            border: 1px solid var(--accent);
+            border-radius: 7px;
+            background: var(--accent);
+            color: #ffffff;
+            font-size: 0.94rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition:
+                background-color 160ms ease,
+                border-color 160ms ease,
+                transform 160ms ease;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-dark);
+            background: var(--accent-dark);
+            color: #ffffff;
+        }
+
+        .button-arrow {
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        .now {
+            display: grid;
+            grid-template-columns: 110px minmax(0, 1fr);
+            gap: 24px;
+            padding-block: 25px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .now-label {
+            margin: 0;
+            color: var(--accent-dark);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .now p:last-child {
+            margin-bottom: 0;
+        }
+
+        .now-content {
+            color: var(--muted);
+        }
+
+        .section {
+            padding-block: clamp(68px, 10vw, 112px);
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        .section-number {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--accent);
+            font-size: 0.73rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin-bottom: 0;
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.065em;
+            line-height: 1.15;
+        }
+
+        .section-intro {
+            max-width: 430px;
+            margin-bottom: 2px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: clamp(23px, 3.5vw, 34px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .project-type {
+            margin: 0;
+            color: var(--accent-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        .project-date {
+            flex-shrink: 0;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .project-card h3 {
+            margin-bottom: 14px;
+            font-size: clamp(1.45rem, 3vw, 1.9rem);
+            font-weight: 800;
+            letter-spacing: -0.055em;
+            line-height: 1.25;
+        }
+
+        .project-summary {
+            margin-bottom: 26px;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .project-details {
+            display: grid;
+            gap: 19px;
+            margin: 0;
+        }
+
+        .project-details div {
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-details dt {
+            margin-bottom: 5px;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .project-details dd {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .work-section {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .work-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .work-empty {
+            padding-block: 24px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .work-item {
+            display: grid;
+            grid-template-columns: 130px minmax(0, 1fr);
+            gap: 24px;
+            align-items: baseline;
+            padding-block: 23px;
+            border-top: 1px solid var(--border);
+        }
+
+        .work-date {
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .work-title {
+            margin: 0;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .work-title a {
+            text-decoration: none;
+        }
+
+        .work-title a:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.3fr);
+            gap: clamp(36px, 8vw, 100px);
+        }
+
+        .about-copy {
+            max-width: 620px;
+        }
+
+        .about-copy p {
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-size: 1.03rem;
+            line-height: 1.85;
+        }
+
+        .about-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-section {
+            padding-block: clamp(60px, 9vw, 100px);
+            border-top: 1px solid var(--border);
+            background: #eef3ef;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+            gap: 40px;
+            align-items: end;
+        }
+
+        .contact-copy {
+            max-width: 500px;
+        }
+
+        .contact-copy h2 {
+            margin-bottom: 15px;
+        }
+
+        .contact-copy p {
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .contact-links a {
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        .site-footer {
+            padding-block: 23px;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-inner p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .back-to-top {
+            color: var(--muted);
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .back-to-top:hover {
+            color: var(--accent-dark);
+        }
+
+        @media (max-width: 720px) {
+            .container {
+                width: min(100% - 36px, var(--page-width));
+            }
+
+            .site-header {
+                padding-block: 19px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding-top: 82px;
+            }
+
+            .now {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 27px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .header-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .project-meta {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .work-item {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="wordmark" href="#home" aria-label="Ercel Angeles, home">
+                Ercel Angeles<span aria-hidden="true">.</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#featured">Featured</a>
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero container" aria-labelledby="hero-title">
+            <p class="eyebrow">Computing Science · Software Development</p>
+
+            <h1 id="hero-title">Ercel Angeles</h1>
+
+            <p class="hero-description">
+                Build websites that provide useful tools to people.
+            </p>
+
+            <a
+                class="primary-button"
+                href="mailto:erceljoh@ualberta.ca?subject=Software%20Developer%20Role"
+            >
+                Discuss a software developer role
+                <span class="button-arrow" aria-hidden="true">↗</span>
+            </a>
+        </section>
+
+        <section class="container now" aria-labelledby="now-heading">
+            <p class="now-label" id="now-heading">Now</p>
+            <div class="now-content">
+                <p>
+                    <mark>[What are you working on in October 2026?]</mark>
+                </p>
+            </div>
+        </section>
+
+        <section class="section container" id="featured" aria-labelledby="featured-heading">
+            <div class="section-heading">
+                <div>
+                    <span class="section-number">01 / Selected projects</span>
+                    <h2 id="featured-heading">Featured</h2>
+                </div>
+
+                <p class="section-intro">
+                    Projects that show what I build, the choices I make, and what I learn.
+                </p>
+            </div>
+
+            <div class="featured-grid">
+                <article class="project-card">
+                    <div class="project-meta">
+                        <p class="project-type">Language learning</p>
+                        <time class="project-date" datetime="2026-09">September 2026</time>
+                    </div>
+
+                    <h3>French-learning app</h3>
+
+                    <p class="project-summary">
+                        A project focused on learning French.
+                    </p>
+
+                    <dl class="project-details">
+                        <div>
+                            <dt>Problem</dt>
+                            <dd>
+                                <mark>[What problem does the app solve for French learners?]</mark>
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Decision</dt>
+                            <dd>
+                                <mark>[What important design or technical decision did you make, and why?]</mark>
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Result</dt>
+                            <dd>
+                                <mark>[What works today, and what result can you demonstrate?]</mark>
+                            </dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-meta">
+                        <p class="project-type">Web application</p>
+                        <time class="project-date" datetime="2026-05">May 2026</time>
+                    </div>
+
+                    <h3>Gardening app</h3>
+
+                    <p class="project-summary">
+                        A project exploring how a website can provide useful tools for plant care.
+                    </p>
+
+                    <dl class="project-details">
+                        <div>
+                            <dt>Problem</dt>
+                            <dd>
+                                <mark>[What gardening task or user problem does the app address?]</mark>
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Decision</dt>
+                            <dd>
+                                <mark>[What important design or technical decision did you make, and why?]</mark>
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Result</dt>
+                            <dd>
+                                <mark>[What features work, and what result can you demonstrate?]</mark>
+                            </dd>
+                        </div>
+                    </dl>
+                </article>
+            </div>
+        </section>
+
+        <section class="section work-section" id="work" aria-labelledby="work-heading">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-number">02 / Project archive</span>
+                        <h2 id="work-heading">Work</h2>
+                    </div>
+
+                    <p class="section-intro">
+                        A growing record of projects, experiments, and things I've built.
+                    </p>
+                </div>
+
+                <p class="work-empty">
+                    No additional work items are listed yet. New projects can be added here
+                    as they become ready to share.
+                </p>
+
+                <ul class="work-list" aria-label="Additional projects">
+                    <!-- ADD NEW WORK HERE: copy one item, paste it at the top, edit it -->
+                    <!-- Add each new item using the template below. Keep the newest item first. -->
+                    <template id="work-item-template">
+                        <li class="work-item">
+                            <time class="work-date" datetime="YYYY-MM">Month YYYY</time>
+                            <p class="work-title">
+                                <a href="PROJECT_URL">Project name</a>
+                            </p>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section container" id="about" aria-labelledby="about-heading">
+            <div class="about-layout">
+                <div>
+                    <span class="section-number">03 / A little context</span>
+                    <h2 id="about-heading">About</h2>
+                </div>
+
+                <div class="about-copy">
+                    <p>
+                        I'm a Computing Science student who builds websites that provide
+                        useful tools to people.
+                    </p>
+
+                    <p>
+                        I'm particularly interested in modern advances in AI, including
+                        large language models (LLMs) and decision-making AI, and in how
+                        software can make tasks more engaging and useful.
+                    </p>
+
+                    <p>
+                        The problem that especially interests me is making rehabilitation
+                        more exciting.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+            <div class="container contact-layout">
+                <div class="contact-copy">
+                    <span class="section-number">04 / Get in touch</span>
+                    <h2 id="contact-heading">Let's talk.</h2>
+
+                    <p>
+                        I'm interested in software developer opportunities where I can
+                        build useful software and contribute to a team.
+                    </p>
+                </div>
+
+                <nav class="contact-links" aria-label="Contact and social profiles">
+                    <a href="mailto:erceljoh@ualberta.ca">erceljoh@ualberta.ca</a>
+
+                    <a
+                        href="https://ca.linkedin.com/in/ercel-angeles-5174243a5"
+                        target="_blank"
+                        rel="me noopener noreferrer"
+                    >
+                        LinkedIn <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <a
+                        href="https://github.com/ercelangeles"
+                        target="_blank"
+                        rel="me noopener noreferrer"
+                    >
+                        GitHub <span aria-hidden="true">↗</span>
+                    </a>
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="footer-year">2026</span> Ercel Angeles</p>
+
+            <a class="back-to-top" href="#home">Back to top ↑</a>
+        </div>
+    </footer>
+</body>
+</html>
